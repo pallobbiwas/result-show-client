@@ -26,8 +26,9 @@ const App = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify(data),
-    });
-    console.log(data);
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   const [helo, seHello] = useState(false);
@@ -105,12 +106,12 @@ const App = () => {
                 </div>
                 <div>
                   <select
-                    {...register("Examinition")}
+                    {...register("examinition")}
                     className="input w-full input-bordered input-xs rounded-none"
                   >
-                    <option value="hsc">H.S.C</option>
-                    <option value="ssc">S.S.C</option>
-                    <option value="dhakil">DHAKIL</option>
+                    <option value="HSC">H.S.C</option>
+                    <option value="SSC">S.S.C</option>
+                    <option value="DHAKIL">DHAKIL</option>
                   </select>
                   <br />
                   <select
@@ -128,15 +129,15 @@ const App = () => {
                     <option value="2014">2014</option>
                     <option value="2013">2013</option>
                     <option value="2012">2012</option>
-                    <option value="2010">2011</option>
-                    <option value="2011">2000</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
                   </select>
                   <br />
                   <select
                     {...register("board")}
                     className="input w-full input-bordered input-xs rounded-none"
                   >
-                    <option value="Barishal">Barishal</option>
+                    <option value="Barisal">Barisal</option>
                     <option value="Dhaka">Dhaka</option>
                     <option value="Cumilla">Cumilla</option>
                     <option value="Khulna">Khulna</option>
