@@ -20,6 +20,13 @@ const App = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
+    fetch("http://localhost:5000/result", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
     console.log(data);
   };
 
@@ -39,7 +46,7 @@ const App = () => {
 
   const resetData = () => {
     reset();
-  }
+  };
 
   return (
     <div className="flex justify-center">
@@ -100,19 +107,15 @@ const App = () => {
                   <select
                     {...register("Examinition")}
                     className="input w-full input-bordered input-xs rounded-none"
-                    id="cars"
-                    name="cars"
                   >
-                    <option value="HSC">H.S.C</option>
-                    <option value="SSC">S.S.C</option>
-                    <option value="DHAKIL">Dhakil</option>
+                    <option value="hsc">H.S.C</option>
+                    <option value="ssc">S.S.C</option>
+                    <option value="dhakil">DHAKIL</option>
                   </select>
                   <br />
                   <select
                     {...register("year")}
                     className="input w-full input-bordered input-xs rounded-none"
-                    id="cars"
-                    name="cars"
                   >
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
@@ -132,8 +135,6 @@ const App = () => {
                   <select
                     {...register("board")}
                     className="input w-full input-bordered input-xs rounded-none"
-                    id="cars"
-                    name="cars"
                   >
                     <option value="Barishal">Barishal</option>
                     <option value="Dhaka">Dhaka</option>
@@ -164,7 +165,10 @@ const App = () => {
                 </div>
               </div>
               <div className=" flex justify-center mt-5">
-                <button onClick={resetData} className="btn btn-sm bg-red-500 mr-5 outline-0">
+                <button
+                  onClick={resetData}
+                  className="btn btn-sm bg-red-500 mr-5 outline-0"
+                >
                   {" "}
                   Reset
                 </button>
