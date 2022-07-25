@@ -6,6 +6,7 @@ import img1 from "../img/download.png";
 import img2 from "../img/teletalk-sim-operator-logo-290AA1EA98-seeklogo.com.png";
 
 const SIngleResult = () => {
+    // random number start
   const [num1, setNum1] = useState("");
   const [num2, setNum2] = useState("");
 
@@ -15,13 +16,15 @@ const SIngleResult = () => {
   }, []);
 
   const result = num1 + num2;
+// random number end
 
-  // random number
-
+// state here
   const { register, handleSubmit, reset } = useForm();
   const [statusCode, setStatusCode] = useState("");
   const [results, setresults] = useState([]);
+  // state here end
 
+  // submit button and api call here
   const onSubmit = (data) => {
     fetch("https://radiant-sierra-69668.herokuapp.com/result", {
       method: "POST",
@@ -39,7 +42,7 @@ const SIngleResult = () => {
 
   const [helo, seHello] = useState(false);
 
-  //img url set
+  //onchange of sumation value of ui
 
   const handelImagUpload = (e) => {
     const res = parseInt(e.target.value);
@@ -65,6 +68,7 @@ const SIngleResult = () => {
       footer: "Powerd by talitalk",
     });
   }
+  
   if (statusCode === 200) {
     console.log(results);
 
@@ -84,7 +88,7 @@ const SIngleResult = () => {
             {results?.examinition}
           </h1>
           <h1 className="text-2xl">
-            <span className="text-3xl font-bold">Boar : </span>
+            <span className="text-3xl font-bold">Board : </span>
             {results?.board}
           </h1>
           <h1 className="text-2xl">
@@ -118,30 +122,45 @@ const SIngleResult = () => {
     <div className="flex justify-center">
       <div className="w-full md:w-1/2 bg-white p-4 border-2">
         <div className="bg-gray-300 rounded-lg flex mb-4">
-          <div className="p-2 mr-5">
-            <img className="w-20 rounded-full" src={img1} alt="" />
+          <div className="p-2 mr-5 flex items-center">
+            <div className="p-5">
+              <img className="w-32 rounded-full" src={img1} alt="" />
+            </div>
           </div>
           <div className="bg-green-300 w-full">
-            <div className="bg-green-600 ">
-              <h3 className="ml-2 text-3xl font-bold text-white">
-                Ministry of Education
-              </h3>
-              <hr />
-              <h2 className="ml-2 text-1xl font-bold text-white">
-                Itermidiet and Secondary Education Board Bangladesh
+            <div className="bgColor">
+              <div className="flex justify-between bordeTop">
+                <div>
+                  <h3 className="ml-2 text-2xl font-bold pt-1 textColor">
+                    Ministry of Education
+                  </h3>
+                </div>
+                <div>
+                  <img
+                    className=""
+                    src="http://www.educationboardresults.gov.bd/images/banner_flag.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <h2 className="ml-2 text-2xl font-bold pt-2 pb-1 text-white">
+                Itermidiet and Secondary Education Boards Bangladesh
               </h2>
             </div>
-            <div className="text-end">
-              <p className="">Official Website of Education board</p>
+            <hr />
+            <div className="text-end bgDownColor">
+              <p className="text-white pr-1">
+                Official Website of Education board
+              </p>
             </div>
           </div>
         </div>
         <div>
           <div className="m-5 md:mx-20 md:border-2">
-            <form className="py-5 md:px-10" onSubmit={handleSubmit(onSubmit)}>
+            <form className="py-5 md:px-32" onSubmit={handleSubmit(onSubmit)}>
               {/* <label className="pr-20 bg-slate-400" htmlFor="">Examinition:</label>
               <input className="input input-bordered input-sm rounded-none" type="text" /> */}
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-center md:justify-between">
                 <div>
                   <label className="" htmlFor="">
                     Examinition :
@@ -172,7 +191,7 @@ const SIngleResult = () => {
                 <div>
                   <select
                     {...register("examinition")}
-                    className="input w-full input-bordered input-xs rounded-none"
+                    className="input w-full input-bordered bg-white input-xs rounded-none"
                   >
                     <option value="HSC">H.S.C</option>
                     <option value="SSC">S.S.C</option>
@@ -181,7 +200,7 @@ const SIngleResult = () => {
                   <br />
                   <select
                     {...register("year")}
-                    className="input w-full input-bordered input-xs rounded-none"
+                    className="input w-full bg-white input-bordered input-xs rounded-none"
                   >
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
@@ -200,7 +219,7 @@ const SIngleResult = () => {
                   <br />
                   <select
                     {...register("board")}
-                    className="input w-full input-bordered input-xs rounded-none"
+                    className="input w-full bg-white input-bordered input-xs rounded-none"
                   >
                     <option value="barisal">Barisal</option>
                     <option value="dhaka">Dhaka</option>
@@ -213,34 +232,34 @@ const SIngleResult = () => {
                   <br />
                   <input
                     {...register("roll")}
-                    className="input input-bordered input-xs rounded-none"
+                    className="input bg-white input-bordered input-xs rounded-none"
                     type="number"
                   />
                   <br />
                   <input
                     {...register("ragistration")}
-                    className="input input-bordered input-xs rounded-none"
+                    className="input bg-white input-bordered input-xs rounded-none"
                     type="number"
                   />
                   <br />
                   <input
                     onChange={handelImagUpload}
-                    className="input input-bordered input-xs rounded-none"
+                    className="input bg-white input-bordered input-xs rounded-none"
                     type="text"
                   />
                 </div>
               </div>
-              <div className=" flex justify-center mt-5">
+              <div className=" flex justify-center md:justify-end mt-5">
                 <button
                   onClick={resetData}
-                  className="btn btn-sm bg-red-500 mr-5 outline-0"
+                  className="btn btn-xs px-2 text-black mr-2 bg-gray-200 rounded-md"
                 >
                   {" "}
                   Reset
                 </button>
                 <input
                   disabled={!helo ? true : false}
-                  className="btn btn-sm bg-success mr-5 outline-0"
+                  className="btn btn-xs px-2 text-black mr-2 bg-gray-200 rounded-md"
                   type="submit"
                   value="Submit"
                 />

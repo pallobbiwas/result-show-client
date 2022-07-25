@@ -40,3 +40,16 @@
 .bordertop {
   border-top: 5px solid green;
 }
+
+.bgColor {
+  background-color: green;
+}
+.textColor {
+  color: rgb(152, 207, 152);
+}
+.bgDownColor {
+  background-color: rgb(71, 158, 85);
+}
+.bordeTop {
+  border-bottom: 1px solid rgb(143, 202, 143);
+}
