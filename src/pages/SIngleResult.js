@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "../App.css";
+import img3 from "../img/banner_flag.jpg";
 import img1 from "../img/download.png";
 import img2 from "../img/teletalk-sim-operator-logo-290AA1EA98-seeklogo.com.png";
 
 const SIngleResult = () => {
-    // random number start
+  // random number start
   const [num1, setNum1] = useState("");
   const [num2, setNum2] = useState("");
 
@@ -16,9 +17,9 @@ const SIngleResult = () => {
   }, []);
 
   const result = num1 + num2;
-// random number end
+  // random number end
 
-// state here
+  // state here
   const { register, handleSubmit, reset } = useForm();
   const [statusCode, setStatusCode] = useState("");
   const [results, setresults] = useState([]);
@@ -68,7 +69,7 @@ const SIngleResult = () => {
       footer: "Powerd by talitalk",
     });
   }
-  
+
   if (statusCode === 200) {
     console.log(results);
 
@@ -136,11 +137,7 @@ const SIngleResult = () => {
                   </h3>
                 </div>
                 <div>
-                  <img
-                    className=""
-                    src="http://www.educationboardresults.gov.bd/images/banner_flag.jpg"
-                    alt=""
-                  />
+                  <img className="" src={img3} alt="" />
                 </div>
               </div>
               <h2 className="ml-2 text-2xl font-bold pt-2 pb-1 text-white">
@@ -156,11 +153,11 @@ const SIngleResult = () => {
           </div>
         </div>
         <div>
-          <div className="m-5 md:mx-20 md:border-2">
-            <form className="py-5 md:px-32" onSubmit={handleSubmit(onSubmit)}>
+          <div className="m-5 md:border-2">
+            <form className="py-5 lg:px-32" onSubmit={handleSubmit(onSubmit)}>
               {/* <label className="pr-20 bg-slate-400" htmlFor="">Examinition:</label>
               <input className="input input-bordered input-sm rounded-none" type="text" /> */}
-              <div className="flex items-center justify-center md:justify-between">
+              <div className="flex items-center justify-center lg:justify-around ">
                 <div>
                   <label className="" htmlFor="">
                     Examinition :
@@ -249,7 +246,7 @@ const SIngleResult = () => {
                   />
                 </div>
               </div>
-              <div className=" flex justify-center md:justify-end mt-5">
+              <div className=" flex justify-center lg:justify-end mt-5 lg:mr-10">
                 <button
                   onClick={resetData}
                   className="btn btn-xs px-2 text-black mr-2 bg-gray-200 rounded-md"
