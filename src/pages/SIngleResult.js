@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "../App.css";
 import img1 from "../img/download.png";
 import img2 from "../img/teletalk-sim-operator-logo-290AA1EA98-seeklogo.com.png";
 
 const SIngleResult = () => {
-  const navigated = useNavigate();
   const [num1, setNum1] = useState("");
   const [num2, setNum2] = useState("");
 
@@ -25,7 +23,7 @@ const SIngleResult = () => {
   const [results, setresults] = useState([]);
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/result", {
+    fetch("https://radiant-sierra-69668.herokuapp.com/result", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -118,7 +116,7 @@ const SIngleResult = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-1/2 bg-white p-4 border-2">
+      <div className="w-full md:w-1/2 bg-white p-4 border-2">
         <div className="bg-gray-300 rounded-lg flex mb-4">
           <div className="p-2 mr-5">
             <img className="w-20 rounded-full" src={img1} alt="" />
@@ -139,8 +137,8 @@ const SIngleResult = () => {
           </div>
         </div>
         <div>
-          <div className="m-5 mx-20 border-2">
-            <form className="py-5 px-10" onSubmit={handleSubmit(onSubmit)}>
+          <div className="m-5 md:mx-20 md:border-2">
+            <form className="py-5 md:px-10" onSubmit={handleSubmit(onSubmit)}>
               {/* <label className="pr-20 bg-slate-400" htmlFor="">Examinition:</label>
               <input className="input input-bordered input-sm rounded-none" type="text" /> */}
               <div className="flex items-center justify-evenly">
